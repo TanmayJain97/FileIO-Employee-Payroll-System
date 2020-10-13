@@ -68,9 +68,15 @@ public class EmployeePayrollMain {
 	 * @return NoOfEntries
 	 */
 	public int countEntries(IOCommand ioType) {
-		if(ioType.equals(IOCommand.FILE_IO)) 
-			return new EmployeePayrollIO().countEntries();
+		if(ioType.equals(IOCommand.FILE_IO)) return new EmployeePayrollIO().countEntries();
 		return 0;
+	}
+	
+	/**Method to read data from file
+	 * @return List containing Emp Data
+	 */
+	public List<EmployeePayrollData> readData() {
+		return new EmployeePayrollIO().readData();
 	}
 	
 	//Main Method
@@ -80,5 +86,8 @@ public class EmployeePayrollMain {
 		employeeFunction.writeEmployeeData(IOCommand.CONSOLE_IO);
 		employeeFunction.writeEmployeeData(IOCommand.FILE_IO);
 		employeeFunction.printData();
+		for (EmployeePayrollData employee:employeeFunction.readData()) {
+			employee.printData();
+		}
 	}
 }

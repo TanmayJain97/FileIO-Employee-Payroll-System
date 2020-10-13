@@ -2,7 +2,7 @@ package bridgelabz.employee_payroll;
 
 import java.io.*;
 import java.nio.file.*;
-import java.util.List;
+import java.util.*;
 
 public class EmployeePayrollIO {
 
@@ -46,9 +46,38 @@ public class EmployeePayrollIO {
 	 */
 	public void printData() {
 		try {
-			Files.lines(new File(PAYROLL_FNAME).toPath()).forEach(System.out::println);
+			Files.lines(new File(PAYROLL_FNAME).toPath())
+			.forEach(System.out::println);
 		} catch (IOException exception) {
 			exception.printStackTrace();
 		}
+	}
+	
+	/**Method to read data from file
+	 * @return List containing Emp Data
+	 */
+	public List<EmployeePayrollData> readData() {
+		List<EmployeePayrollData> employeeDataList = new ArrayList<EmployeePayrollData>();
+		
+		try {
+			Files.lines(new File(PAYROLL_FNAME).toPath())
+			.map(line->line.trim())
+			.forEach(line->{
+			String data = line.toString();
+			String[] dataArr = data.split(",");
+			for(int i=0;i<dataArr.length;i++){
+				int id = Integer.parseInt(dataArr[i].replaceAll("id =", ""));
+				i++;
+				String name = dataArr[i].replaceAll("name =", "");
+				i++;
+				double salary = Double.parseDouble(dataArr[i].replaceAll("salary =", ""));
+				EmployeePayrollData employee = new EmployeePayrollData(id,name,salary);
+				employeeDataList.add(employee);
+			}
+			});
+		}catch(IOException exception) {
+			exception.printStackTrace();
+		}
+		return employeeDataList;
 	}
 }
