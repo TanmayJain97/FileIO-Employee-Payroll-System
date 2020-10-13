@@ -8,8 +8,12 @@ public class EmployeePayrollMain {
 		{CONSOLE_IO,FILE_IO,DB_IO,REST_IO}
 	
 	//Declaring global var list of employee data
-	private List<EmployeePayrollData> employeeDataList;
-	
+	public List<EmployeePayrollData> employeeDataList;
+
+	public void setEmployeeDataList(List<EmployeePayrollData> employeeDataList) {
+		this.employeeDataList = employeeDataList;
+	}
+
 	/**Constructor For Main Class
 	 * 
 	 */
@@ -20,7 +24,7 @@ public class EmployeePayrollMain {
 	/**Read Emp Data from console <br>
 	 * Adds data to Employee Data List
 	 */
-	private void readEmployeeData() {
+	public void readEmployeeData() {
 		Scanner consoleScanner=new Scanner(System.in);
 		System.out.print("Enter Employee ID : ");
 		int id = consoleScanner.nextInt();
@@ -34,20 +38,32 @@ public class EmployeePayrollMain {
 		consoleScanner.close();
 	}
 	
-	/**
-	 * Write Emp Data to console
+	/**Write Emp Data to console and file
+	 * @param ioType <br> CONSOLE_IO or FILE_IO
 	 */
-	private void writeEmployeeData() {
-		System.out.println("Writing Employee Payroll Data to Console.");
-		for (EmployeePayrollData employee:employeeDataList) {
-			employee.printData();
+	public void writeEmployeeData(IOCommand ioType) {
+		if(ioType.equals(ioType.CONSOLE_IO)) {
+			System.out.println("Writing Employee Payroll Data to Console.");
+			for (EmployeePayrollData employee:employeeDataList) {
+				employee.printData();
+			}
+		}else if (ioType.equals(ioType.FILE_IO)){
+			new EmployeePayrollIO().writeData(employeeDataList);
+			System.out.println("Write in File");
 		}
+	}
+	
+	public int countEntries(IOCommand ioType) {
+		if(ioType.equals(IOCommand.FILE_IO)) 
+			return new EmployeePayrollIO().countEntries();
+		return 0;
 	}
 	
 	//Main Method
 	public static void main(String[] args) {
 		EmployeePayrollMain employeeFunction = new EmployeePayrollMain();
 		employeeFunction.readEmployeeData();
-		employeeFunction.writeEmployeeData();
+		employeeFunction.writeEmployeeData(IOCommand.CONSOLE_IO);
+		employeeFunction.writeEmployeeData(IOCommand.FILE_IO);
 	}
 }

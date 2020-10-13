@@ -20,6 +20,10 @@ public class EmployeePayrollData {
 		System.out.println();
 	}
 	
+	public String pushData() {
+		return "id = " + id + ", name = " + name + ", salary = " + salary;
+	}
+	
 	@Override
 	public String toString() {
 		return "Created new Employee Data";
