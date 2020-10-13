@@ -1,3 +1,13 @@
 # FileIO-Employee-Payroll-System
 
-Modified to UC 1 - Create an Employee Payroll Service to Read and Write Employee Payroll to a Console
+Modified to UC 2 - Perform File Operations
+
+- Check File Exists
+
+- Delete File and Check File Not Exist
+
+- Create Directory
+
+- Create Empty File
+
+- List Files, Directories as well as Files with Extension
