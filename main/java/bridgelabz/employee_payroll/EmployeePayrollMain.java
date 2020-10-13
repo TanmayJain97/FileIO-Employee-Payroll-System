@@ -10,6 +10,9 @@ public class EmployeePayrollMain {
 	//Declaring global var list of employee data
 	public List<EmployeePayrollData> employeeDataList;
 
+	/**Setter for list containing Emp Data
+	 * @param List containing Emp Data
+	 */
 	public void setEmployeeDataList(List<EmployeePayrollData> employeeDataList) {
 		this.employeeDataList = employeeDataList;
 	}
@@ -53,6 +56,17 @@ public class EmployeePayrollMain {
 		}
 	}
 	
+	/**Method to print data to console
+	 * 
+	 */
+	public void printData() {
+		new EmployeePayrollIO().printData();
+	}
+	
+	/**Method to count entries in file
+	 * @param ioType
+	 * @return NoOfEntries
+	 */
 	public int countEntries(IOCommand ioType) {
 		if(ioType.equals(IOCommand.FILE_IO)) 
 			return new EmployeePayrollIO().countEntries();
@@ -65,5 +79,6 @@ public class EmployeePayrollMain {
 		employeeFunction.readEmployeeData();
 		employeeFunction.writeEmployeeData(IOCommand.CONSOLE_IO);
 		employeeFunction.writeEmployeeData(IOCommand.FILE_IO);
+		employeeFunction.printData();
 	}
 }
