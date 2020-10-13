@@ -1,13 +1,3 @@
 # FileIO-Employee-Payroll-System
 
-Modified to UC 2 - Perform File Operations
-
-- Check File Exists
-
-- Delete File and Check File Not Exist
-
-- Create Directory
-
-- Create Empty File
-
-- List Files, Directories as well as Files with Extension
+Modified to UC 3 - Create a Watch Service to watch particular directory along with all Files and Sub Directories
