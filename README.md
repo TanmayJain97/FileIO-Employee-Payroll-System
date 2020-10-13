@@ -1,5 +1,5 @@
 # FileIO-Employee-Payroll-System
 
-Modified to UC 5 - Ability for Employee Payroll Service to print the Employee Payrolls
+Modified to UC 6 - Ability for Employee Payroll Service to read the
 
-Also Show Count of Entries
+Employee Payroll File so that some analysis can be performed
