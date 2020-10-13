@@ -22,6 +22,7 @@ public class EmployeePayrollTest {
 		employeeFunction = new EmployeePayrollMain();
 		employeeFunction.setEmployeeDataList(Arrays.asList(arrayOfEmp));
 		employeeFunction.writeEmployeeData(IOCommand.FILE_IO);
+		employeeFunction.printData();
 	}
 	
 	@Test
