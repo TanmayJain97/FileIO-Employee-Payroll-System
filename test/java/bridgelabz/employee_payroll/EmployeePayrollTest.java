@@ -2,6 +2,7 @@ package bridgelabz.employee_payroll;
 
 import static org.junit.Assert.*;
 import java.util.Arrays;
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -23,10 +24,18 @@ public class EmployeePayrollTest {
 		employeeFunction.setEmployeeDataList(Arrays.asList(arrayOfEmp));
 		employeeFunction.writeEmployeeData(IOCommand.FILE_IO);
 		employeeFunction.printData();
+		List<EmployeePayrollData> employeeList = employeeFunction.readData();
+		System.out.println(employeeList);
 	}
 	
 	@Test
 	public void givenThreeEmployeesWhenWrittenToFileShouldMatchEmployeeEntries() {
+		assertEquals(3, employeeFunction.countEntries(IOCommand.FILE_IO));
+	}
+	
+	@Test
+	public void givenFileOnReadingFromFileShouldMatchEmployeeCount() {
+		List<EmployeePayrollData> employeeList = employeeFunction.readData();
 		assertEquals(3, employeeFunction.countEntries(IOCommand.FILE_IO));
 	}
 }
