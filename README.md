@@ -1,3 +1,5 @@
 # FileIO-Employee-Payroll-System
 
-Modified to UC 3 - Create an Employee Payroll Service to store Employee Payroll into a File
+Modified to UC 4 - Ability for Employee Payroll Service to write the Employee Payrolls in a file
+
+Also Show Count of Entries
