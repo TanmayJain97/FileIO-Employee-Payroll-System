@@ -66,7 +66,7 @@ public class EmployeePayrollIO {
 			String data = line.toString();
 			String[] dataArr = data.split(",");
 			for(int i=0;i<dataArr.length;i++){
-				int id = Integer.parseInt(dataArr[i].replaceAll("id =", ""));
+				int id = Integer.valueOf(dataArr[i].split(" = ")[1]);
 				i++;
 				String name = dataArr[i].replaceAll("name =", "");
 				i++;
