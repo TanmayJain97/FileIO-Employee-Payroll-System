@@ -25,7 +25,9 @@ public class EmployeePayrollTest {
 		employeeFunction.writeEmployeeData(IOCommand.FILE_IO);
 		employeeFunction.printData();
 		List<EmployeePayrollData> employeeList = employeeFunction.readData();
-		System.out.println(employeeList);
+		for (EmployeePayrollData emp:employeeList) {
+			emp.printData();
+		}
 	}
 	
 	@Test
